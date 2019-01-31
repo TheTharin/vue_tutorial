@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VueJS</title>
+    <link rel="stylesheet" type="text/css" href="./styles/index6.css" media="screen" />
+</head>
+<body>
+    <script src="vue.js" type="text/javascript"></script>
+    <div class="app">
+      <div 
+          class='demo' 
+          @click='attachRed = !attachRed'
+          :class="divClasses">
+          {{ redText }}
+      </div>
+      <div 
+          class='demo'
+          :class="{ 'red': attachRed }">
+          {{ blueText }}
+      </div>
+      <div 
+          class='demo'
+          :class="[color, { 'red': attachRed }]">
+      </div>
+      <br/>
+      <input type="text" v-model='color'>
+    </div>
+  
+    <script>
+      new Vue({
+        el: ".app",
+        data: {
+          attachRed: false,
+          color: 'green'
+        },
+        computed: {
+          divClasses: function() {
+            return {
+              red: this.attachRed,
+              blue: !this.attachRed
+            };
+          }
+        }
+      })
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VueJS</title>
+</head>
+<body>
+  <script src="vue.js" type="text/javascript"></script>
+  <div class="app">
+    <h1 v-once>{{ title }}</h1>
+    <p>{{ sayHello() }} - <a v-bind:href="link">Github</a></p>
+    <hr>
+    <p v-html='finishedLink'></p>
+  </div>
+  
+  <script>
+    new Vue({
+      el: ".app",
+      data: {
+        title: 'Hello, World!',
+        link: 'https://github.com',
+        finishedLink: '<a href="https://github.com">Github2</a>'
+      },
+      methods: {
+        sayHello: function(){
+          this.title = 'Hello!';
+          return this.title;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VueJS</title>
+</head>
+<body>
+  <script src="vue.js" type="text/javascript"></script>
+  <div class="app">
+    <button @click='changeLink'>Clink to change the Link</button>
+    <a :href='link'>Link</a>
+  </div>
+  
+  <script>
+    new Vue({
+      el: ".app",
+      data: {
+        link: 'https://github.com'
+      },
+      methods: {
+        changeLink: function(){
+          this.link = 'http://apple.com';
+        }
+      }
+    })
+  </script>
+</body>
+</html>
